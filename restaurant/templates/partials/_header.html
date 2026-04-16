@@ -1,5 +1,27 @@
 {% load static %}
-<header>
+
+<link rel="preload" as="style" href="{% static 'css/style.css' %}" onload="this.rel = 'stylesheet'" />
+
+<nav id="navbar">
+  <a href="{% url 'home' %}" class="nav-logo">
+    <div class="lemon-icon">🍋</div>
+    Little Lemon
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <a href="{% url 'menu' %}" class="nav-cta">Order Now</a>
+</nav>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+</script>
+
+<!-- <header>
   <img src="{% static 'img/logo.png' %}" />
 </header>
 <nav>
@@ -8,5 +30,6 @@
     <li><a href="{% url 'about' %}">About</a></li>
     <li><a href="{% url 'menu' %}">Menu</a></li>
     <li><a href="{% url 'book' %}">Book</a></li>
+    <li><a href="{% url 'lemon' %}">Lemon</a></li>
   </ul>
-</nav>
+</nav> -->

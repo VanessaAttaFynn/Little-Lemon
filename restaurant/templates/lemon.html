@@ -1,4 +1,13 @@
-:root {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Little Lemon 🍋</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
     --yellow: #F7C948;
     --yellow-light: #FFF3C4;
     --yellow-dark: #D4A017;
@@ -435,3 +444,373 @@
     .newsletter-form { flex-direction: column; }
     footer { flex-direction: column; text-align: center; }
   }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="lemon-icon">🍋</div>
+    Little Lemon
+  </a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+  </ul>
+  <a href="#menu" class="nav-cta">Order Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg-blob blob1"></div>
+  <div class="hero-bg-blob blob2"></div>
+  <div class="hero-bg-blob blob3"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag">✨ Fresh & Made Daily</div>
+    <h1 class="hero-title">
+      Tart. Sweet.<br/><em>Totally worth it.</em>
+    </h1>
+    <p class="hero-sub">
+      Handcrafted lemon teas, cakes and treats made fresh every morning. Your favourite little café — now at your doorstep.
+    </p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">Browse the Menu</a>
+      <a href="#about" class="btn-outline">Our Story</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-plate">
+      <div class="hero-plate-inner">
+        <span class="hero-emoji">🍋</span>
+        <span class="hero-plate-label">little lemon</span>
+      </div>
+      <div class="floating-badge badge-left">
+        <span class="badge-dot dot-pink"></span> Lemon Drizzle Cake
+      </div>
+      <div class="floating-badge badge-right">
+        <span class="badge-dot dot-green"></span> Fresh Today
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z" fill="white"/>
+  </svg>
+</div>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="menu-header reveal">
+    <div class="section-tag">🍹 The Menu</div>
+    <h2 class="section-title">What's brewing today?</h2>
+    <p class="section-sub">Everything made with real lemons, real love, and just the right amount of sugar.</p>
+  </div>
+
+  <div class="menu-tabs reveal">
+    <button class="tab active" onclick="filterMenu('all', this)">All</button>
+    <button class="tab" onclick="filterMenu('drinks', this)">Drinks</button>
+    <button class="tab" onclick="filterMenu('bakes', this)">Bakes</button>
+    <button class="tab" onclick="filterMenu('bundles', this)">Bundles</button>
+  </div>
+
+  <div class="menu-grid" id="menuGrid">
+
+    <div class="menu-card visible" data-cat="drinks">
+      <span class="card-emoji">🍹</span>
+      <div class="card-tags"><span class="card-tag tag-best">Bestseller</span></div>
+      <h3 class="card-name">Classic Lemonade</h3>
+      <p class="card-desc">Cold-pressed lemons, cane sugar, just the right amount of fizz. The one that started it all.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 18 <span>/ cup</span></div>
+        <button class="card-btn" onclick="addToCart('Classic Lemonade')">Add +</button>
+      </div>
+    </div>
+
+    <div class="menu-card visible" data-cat="drinks">
+      <span class="card-emoji">🌸</span>
+      <div class="card-tags"><span class="card-tag tag-new">New</span></div>
+      <h3 class="card-name">Pink Lemonade</h3>
+      <p class="card-desc">Our classic lemonade blended with hibiscus. Pretty in the glass, even prettier going down.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 22 <span>/ cup</span></div>
+        <button class="card-btn" onclick="addToCart('Pink Lemonade')">Add +</button>
+      </div>
+    </div>
+
+    <div class="menu-card visible" data-cat="drinks">
+      <span class="card-emoji">🫚</span>
+      <div class="card-tags"><span class="card-tag tag-hot">Popular</span></div>
+      <h3 class="card-name">Lemon Ginger Tea</h3>
+      <p class="card-desc">A warming hug in a cup. Fresh ginger, honey and lemon — your immune system will thank you.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 20 <span>/ cup</span></div>
+        <button class="card-btn" onclick="addToCart('Lemon Ginger Tea')">Add +</button>
+      </div>
+    </div>
+
+    <div class="menu-card visible" data-cat="drinks">
+      <span class="card-emoji">🍵</span>
+      <div class="card-tags"><span class="card-tag tag-new">New</span></div>
+      <h3 class="card-name">Lemon Matcha</h3>
+      <p class="card-desc">Ceremonial grade matcha meets fresh lemon zest. Trendy? Yes. Delicious? Absolutely.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 28 <span>/ cup</span></div>
+        <button class="card-btn" onclick="addToCart('Lemon Matcha')">Add +</button>
+      </div>
+    </div>
+
+    <div class="menu-card visible" data-cat="bakes">
+      <span class="card-emoji">🍰</span>
+      <div class="card-tags"><span class="card-tag tag-best">Bestseller</span></div>
+      <h3 class="card-name">Lemon Drizzle Cake</h3>
+      <p class="card-desc">Moist sponge, zingy lemon syrup, crunchy sugar crust. A slice of this and your day is better.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 35 <span>/ slice</span></div>
+        <button class="card-btn" onclick="addToCart('Lemon Drizzle Cake')">Add +</button>
+      </div>
+    </div>
+
+    <div class="menu-card visible" data-cat="bakes">
+      <span class="card-emoji">🥧</span>
+      <div class="card-tags"><span class="card-tag tag-hot">Popular</span></div>
+      <h3 class="card-name">Lemon Meringue Tart</h3>
+      <p class="card-desc">Buttery pastry, silky lemon curd, toasted meringue peaks. Looks fancy, tastes even better.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 40 <span>/ slice</span></div>
+        <button class="card-btn" onclick="addToCart('Lemon Meringue Tart')">Add +</button>
+      </div>
+    </div>
+
+    <div class="menu-card visible" data-cat="bakes">
+      <span class="card-emoji">🧁</span>
+      <div class="card-tags"></div>
+      <h3 class="card-name">Lemon Poppy Seed Muffin</h3>
+      <p class="card-desc">Fluffy, bright, and just the right amount of tangy. Perfect with your morning tea.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 18 <span>/ each</span></div>
+        <button class="card-btn" onclick="addToCart('Lemon Poppy Seed Muffin')">Add +</button>
+      </div>
+    </div>
+
+    <div class="menu-card visible" data-cat="bakes">
+      <span class="card-emoji">🍪</span>
+      <div class="card-tags"><span class="card-tag tag-new">New</span></div>
+      <h3 class="card-name">Lemon Shortbread</h3>
+      <p class="card-desc">Buttery, crumbly, with a lemon glaze that shatters perfectly. Comes in a box of 6.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 30 <span>/ box</span></div>
+        <button class="card-btn" onclick="addToCart('Lemon Shortbread')">Add +</button>
+      </div>
+    </div>
+
+    <div class="menu-card visible" data-cat="bundles">
+      <span class="card-emoji">🎁</span>
+      <div class="card-tags"><span class="card-tag tag-best">Best Value</span></div>
+      <h3 class="card-name">The Full Squeeze</h3>
+      <p class="card-desc">One slice of Lemon Drizzle + a Classic Lemonade. The perfect combo for yourself or someone you like.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 48 <span>/ bundle</span></div>
+        <button class="card-btn" onclick="addToCart('The Full Squeeze Bundle')">Add +</button>
+      </div>
+    </div>
+
+    <div class="menu-card visible" data-cat="bundles">
+      <span class="card-emoji">📦</span>
+      <div class="card-tags"><span class="card-tag tag-hot">Gift Ready</span></div>
+      <h3 class="card-name">Little Lemon Gift Box</h3>
+      <p class="card-desc">Shortbread, a mini drizzle cake, and two teabags — beautifully boxed for gifting. They'll love you for it.</p>
+      <div class="card-footer">
+        <div class="card-price">GH₵ 85 <span>/ box</span></div>
+        <button class="card-btn" onclick="addToCart('Little Lemon Gift Box')">Add +</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WAVE 2 -->
+<div class="wave" style="background: white;">
+  <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,20 C480,60 960,0 1440,40 L1440,60 L0,60 Z" fill="#FFFBF0"/>
+  </svg>
+</div>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-visual reveal">
+    <div class="about-card-main">
+      <span class="big-emoji">🍋</span>
+      <p>"Started in a little kitchen with too many lemons and not enough people to share them with."</p>
+    </div>
+    <div class="about-card-float float-one">
+      🌿 All Natural Ingredients
+    </div>
+    <div class="about-card-float float-two">
+      ❤️ Made with Love
+    </div>
+  </div>
+
+  <div class="about-content reveal">
+    <div class="section-tag">🍋 Our Story</div>
+    <h2 class="section-title">A little kitchen.<br/>A big obsession.</h2>
+    <p class="section-sub">
+      Little Lemon started when our founder Ama couldn't stop making lemon drizzle cakes for everyone she knew. Friends turned into regulars, regulars turned into a waitlist, and the waitlist turned into this. We use only fresh lemons, local ingredients, and old family recipes. No shortcuts. No fake flavours. Just the good stuff.
+    </p>
+
+    <div class="about-stats">
+      <div class="stat-box">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Orders delivered this month</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Fresh, real lemons only</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">12</div>
+        <div class="stat-label">Menu items & counting</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">4.9⭐</div>
+        <div class="stat-label">Average customer rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="test-header reveal">
+    <div class="section-tag">💬 Reviews</div>
+    <h2 class="section-title">What people are saying</h2>
+    <p class="section-sub">Real people, real lemons, real good.</p>
+  </div>
+
+  <div class="test-grid">
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"The lemon drizzle cake arrived perfectly packaged and it was honestly the best thing I've eaten all year. I've already ordered twice."</p>
+      <div class="test-author">
+        <div class="test-avatar av1">A</div>
+        <div>
+          <div class="test-name">Abena K.</div>
+          <div class="test-location">Accra, Ghana</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"The pink lemonade is SO good. I ordered the Full Squeeze bundle and it came quickly. Will definitely be a regular customer!"</p>
+      <div class="test-author">
+        <div class="test-avatar av2">S</div>
+        <div>
+          <div class="test-name">Serwaa M.</div>
+          <div class="test-location">East Legon, Accra</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="test-card reveal">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"Got the gift box for my mum's birthday and she called me immediately to say thank you. Little Lemon saved my life 😂"</p>
+      <div class="test-author">
+        <div class="test-avatar av3">K</div>
+        <div>
+          <div class="test-name">Kwame D.</div>
+          <div class="test-location">Tema, Ghana</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <span class="newsletter-emoji">📬</span>
+  <div class="section-tag" style="background:rgba(255,255,255,0.4); color: var(--charcoal);">Stay in the loop</div>
+  <h2 class="section-title">Get fresh drops<br/>(literally)</h2>
+  <p class="newsletter-sub">New flavours, limited specials, and the occasional love letter about lemons. No spam, we promise.</p>
+  <div class="newsletter-form">
+    <input type="email" placeholder="your@email.com" id="emailInput"/>
+    <button onclick="subscribe()">Subscribe 🍋</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">🍋 Little Lemon</div>
+  <p>© 2025 Little Lemon. Made with love & citrus.</p>
+  <div class="footer-links">
+    <a href="#menu">Menu</a>
+    <a href="#about">About</a>
+    <a href="#">Instagram</a>
+    <a href="#">Contact</a>
+  </div>
+</footer>
+
+<!-- CART TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-dot"></span>
+  <span id="toastMsg">Added to cart!</span>
+</div>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Menu filter
+  function filterMenu(cat, btn) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.menu-card').forEach(card => {
+      const show = cat === 'all' || card.dataset.cat === cat;
+      card.classList.toggle('visible', show);
+    });
+  }
+
+  // Cart toast
+  let toastTimer;
+  function addToCart(item) {
+    const toast = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = `${item} added! 🍋`;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2800);
+  }
+
+  // Newsletter
+  function subscribe() {
+    const input = document.getElementById('emailInput');
+    if (input.value && input.value.includes('@')) {
+      addToCart('Newsletter — welcome aboard!');
+      input.value = '';
+    } else {
+      input.style.outline = '2px solid var(--pink)';
+      setTimeout(() => input.style.outline = '', 1500);
+    }
+  }
+</script>
+</body>
+</html>
