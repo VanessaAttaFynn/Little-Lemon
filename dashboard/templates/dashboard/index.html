@@ -1,0 +1,83 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- SUMMARY CARDS -->
+<div class="stats-grid">
+
+    <div class="stat-card">
+        <div class="stat-icon icon-yellow">📦</div>
+        <div class="stat-info">
+            <p>Total Orders</p>
+            <h3>{{ total_orders }}</h3>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon icon-pink">⏳</div>
+        <div class="stat-info">
+            <p>Pending</p>
+            <h3>{{ pending_orders }}</h3>
+        </div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon icon-green">👨‍🍳</div>
+        <div class="stat-info">
+            <p>Preparing</p>
+            <h3>{{ preparing_orders }}</h3>
+        </div>
+    </div>
+
+</div>
+
+<!-- ORDERS TABLE -->
+<div class="table-card">
+    <div class="table-header">
+        <h2>All Orders</h2>
+        <span>{{ total_orders }} total</span>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Email</th>
+                <th>Items</th>
+                <th>Status</th>
+                <th>Ordered At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td><strong>{{ order.order_number }}</strong></td>
+                <td>{{ order.customer_name }}</td>
+                <td>{{ order.customer_email }}</td>
+                <td>
+                    {% for item in order.items.all %}
+                        {{ item.quantity }}x {{ item.menu_item.name }}<br>
+                    {% empty %}
+                        <span style="color:#aaa">No items</span>
+                    {% endfor %}
+                </td>
+                <td>
+                    <span class="badge badge-{{ order.status }}">
+                        {{ order.get_status_display }}
+                    </span>
+                </td>
+                <td>{{ order.ordered_at|date:"M d, Y · g:i a" }}</td>
+            </tr>
+            {% empty %}
+            <tr class="empty-row">
+                <td colspan="6">No orders yet!! 🍋</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

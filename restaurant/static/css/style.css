@@ -142,6 +142,16 @@
   }
   .btn-outline:hover { background: var(--charcoal); color: var(--yellow); }
 
+  .btn-outline-small {
+    background: transparent; color: var(--charcoal);
+    padding: 0.5rem 1.2rem; border-radius: 50px;
+    font-weight: 700; font-size: 0.85rem;
+    text-decoration: none; border: 2px solid var(--charcoal);
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline-small:hover { background: var(--charcoal); color: var(--yellow); }
+
+
   /* Hero visual */
   .hero-visual {
     position: relative; z-index: 1;

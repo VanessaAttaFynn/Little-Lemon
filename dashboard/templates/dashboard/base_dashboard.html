@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Little Lemon | Staff</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}"/>
+</head>
+<body>
+    <div class="blob-green"></div>
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="logo-icon">🍋</span>
+                <div>
+                    <h2>Little Lemon</h2>
+                    <p>Staff Portal</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="{% url 'dashboard' %}" class="nav-item">
+                    📊 Dashboard
+                </a>
+                <a href="#" class="nav-item">
+                    📦 Orders
+                </a>
+                <a href="{% url 'menu' %}" class="nav-item">
+                    🍋 Menu
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <p>Logged in as</p>
+                <strong>{{ request.user.username }}</strong>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <div class="topbar">
+                <h1 class="page-title">{% block page_title %}Dashboard{% endblock %}</h1>
+                <a href="{% url 'home' %}" class="view-site">← View Site</a>
+            </div>
+
+            {% block content %}{% endblock %}
+        </main>
+
+    </div>
+</body>
+</html>
